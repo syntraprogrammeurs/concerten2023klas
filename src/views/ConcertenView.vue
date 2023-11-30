@@ -8,7 +8,7 @@
    onMounted(()=>{
      ConcertenService.getConcerten()
          .then((response)=>{
-           concerten.value = response.data.concerten
+           concerten.value = response.data
          }).catch((error)=>{
            console.log(error)
      })
