@@ -2,9 +2,14 @@
   import {ref,onMounted} from 'vue'
   import ConcertenService from "../../services/ConcertenService";
   const concert = ref(null)
-  const id=ref(1)   // "id":1
+  /*const id=ref(1)   // "id":1*/
+  const props= defineProps({
+    id:{
+      required:true,
+    }
+  })
   onMounted(()=>{
-    ConcertenService.getConcert(id.value)
+    ConcertenService.getConcert(props.id)
         .then((response)=>{
           concert.value = response.data
         })
@@ -14,7 +19,7 @@
   })
 </script>
 <template>
-  <div v-if="concert">
+  <div v-if="concert" class="position-absolute top-50 start-50 translate-middle alert alert-warning">
     <h1>{{concert.title}}</h1>
     <p>{{concert.time}} - {{concert.date}} - {{concert.location}}</p>
     <p>{{concert.description}}</p>
