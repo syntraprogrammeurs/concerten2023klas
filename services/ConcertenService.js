@@ -11,6 +11,9 @@ const apiClient = axios.create({
 export default{
     getConcerten(){
         return apiClient.get('/')
+    },
+    getConcert(id){
+        return apiClient.get('/'+id)
     }
    
 }

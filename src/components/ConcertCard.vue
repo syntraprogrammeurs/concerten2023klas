@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-
+<RouterLink to="/concert/1">
     <div class="card" style="width: 18rem;">
       <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
       <div class="card-body">
@@ -28,7 +28,7 @@ defineProps({
         <a href="#" class="card-link">Another link</a>
       </div>
     </div>
-
+</RouterLink>
 </template>
 
 <style scoped>
