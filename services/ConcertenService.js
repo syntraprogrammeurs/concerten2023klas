@@ -18,5 +18,4 @@ export default{
     getConcert(id){
         return apiClient.get('/'+id)
     }
-   
-}
+   }

@@ -9,6 +9,7 @@ const isLaatstePagina = ref(false)
 const concertenPerPagina = ref(3)
 const totaalAantalPaginas = ref(0)
 const totaalAantalConcerten = ref(0)
+const zoekopdracht = ref("");
 const props = defineProps({
   page: Number
 })
@@ -39,6 +40,7 @@ onMounted(() => {
 
 const selectAantal = (aantal) => {
   concertenPerPagina.value = aantal;
+  props.page = 1;
   updateConcerten();
 }
 </script>
@@ -46,7 +48,8 @@ const selectAantal = (aantal) => {
 <template>
   <div class="home">
     <div class="dropdown text-center">
-      <button id="dropdownMenuButton" aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+      <button id="dropdownMenuButton" aria-expanded="false" class="btn btn-secondary dropdown-toggle"
+              data-bs-toggle="dropdown"
               type="button">
         #Items per pagina
       </button>
@@ -57,6 +60,19 @@ const selectAantal = (aantal) => {
           </a>
         </li>
       </ul>
+    </div>
+    <div class="search-container">
+      <div class="input-group mb-3">
+        <input
+            v-model="zoekopdracht"
+            class="form-control"
+            placeholder="Zoek concerten"
+            type="text"
+        >
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+        </div>
+      </div>
     </div>
     <div id="wrapper" class="d-flex justify-content-evenly my-2">
       <ConcertCard v-for="concert in concerten" :key="concert.id" :concert="concert"/>
