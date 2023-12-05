@@ -40,7 +40,7 @@ onMounted(() => {
 
 const selectAantal = (aantal) => {
   concertenPerPagina.value = aantal;
-  props.page = 1;
+  // props.page = 1;
   updateConcerten();
 }
 </script>
